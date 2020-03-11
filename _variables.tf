@@ -7,7 +7,7 @@ variable "cidr" {
 }
 
 variable "subnet_ids" {
-  type        = "list"
+  type        = list(string)
   description = "Subnet ID to associate clients"
 }
 

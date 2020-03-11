@@ -4,11 +4,11 @@ resource "tls_private_key" "ca" {
 
 resource "tls_self_signed_cert" "ca" {
   key_algorithm   = "RSA"
-  private_key_pem = "${tls_private_key.ca.private_key_pem}"
+  private_key_pem = tls_private_key.ca.private_key_pem
 
   subject {
     common_name  = "${var.name}.vpn.ca"
-    organization = "${var.organization_name}"
+    organization = var.organization_name
   }
 
   validity_period_hours = 87600
@@ -21,6 +21,6 @@ resource "tls_self_signed_cert" "ca" {
 }
 
 resource "aws_acm_certificate" "ca" {
-  private_key      = "${tls_private_key.ca.private_key_pem}"
-  certificate_body = "${tls_self_signed_cert.ca.cert_pem}"
+  private_key      = tls_private_key.ca.private_key_pem
+  certificate_body = tls_self_signed_cert.ca.cert_pem
 }
