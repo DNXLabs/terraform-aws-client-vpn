@@ -4,6 +4,12 @@
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-client-vpn)](https://github.com/DNXLabs/terraform-aws-client-vpn/blob/master/LICENSE)
 
 <!--- BEGIN_TF_DOCS --->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12.20 |
+
 ## Providers
 
 | Name | Version |
@@ -14,7 +20,7 @@
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | cidr | Network CIDR to use for clients | `any` | n/a | yes |
 | logs\_retention | Retention in days for CloudWatch Log Group | `number` | `365` | no |
 | name | Name prefix for the resources of this stack | `any` | n/a | yes |
@@ -25,6 +31,7 @@
 ## Outputs
 
 No output.
+
 <!--- END_TF_DOCS --->
 
 ## Author
