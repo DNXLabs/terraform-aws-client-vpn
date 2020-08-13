@@ -3,6 +3,14 @@
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-client-vpn/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-client-vpn/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-client-vpn)](https://github.com/DNXLabs/terraform-aws-client-vpn/blob/master/LICENSE)
 
+This terraform module installs a client vpn.
+
+This modules creates the following resources:
+ - VPN Endpoint - Provides an AWS Client VPN endpoint for OpenVPN clients.
+ - Provides network associations for AWS Client VPN endpoints
+ - Generate AWS Certificate Manager(ACM) certificates
+
+
 <!--- BEGIN_TF_DOCS --->
 
 ## Requirements
