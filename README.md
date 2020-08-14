@@ -5,7 +5,7 @@
 
 This terraform module installs a client vpn.
 
-This modules creates the following resources:
+The following resources will be created:
  - VPN Endpoint - Provides an AWS Client VPN endpoint for OpenVPN clients.
  - Provides network associations for AWS Client VPN endpoints
  - Generate AWS Certificate Manager(ACM) certificates
