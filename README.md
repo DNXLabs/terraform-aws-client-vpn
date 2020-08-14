@@ -10,7 +10,6 @@ The following resources will be created:
  - Provides network associations for AWS Client VPN endpoints
  - Generate AWS Certificate Manager(ACM) certificates
 
-
 <!--- BEGIN_TF_DOCS --->
 
 ## Requirements
