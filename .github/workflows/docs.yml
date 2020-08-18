@@ -1,8 +1,10 @@
 name: Generate terraform docs
+
 on:
   push:
     branches:
       - master
+
 jobs:
   docs:
     runs-on: ubuntu-latest
