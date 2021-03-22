@@ -11,13 +11,18 @@ variable "subnet_ids" {
   description = "Subnet ID to associate clients"
 }
 
+variable "subnet_cidrs" {
+  type        = list(string)
+  description = "Subnet CIDR to associate clients"
+}
+
 variable "organization_name" {
   description = "Name of organization to use in private certificate"
   default     = "ACME, Inc"
 }
 
 variable "tags" {
-  type        = "map"
+  type        = map(string)
   default     = {}
   description = "Extra tags to attach to resources"
 }
