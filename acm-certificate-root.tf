@@ -6,6 +6,10 @@ resource "tls_cert_request" "root" {
   key_algorithm   = "RSA"
   private_key_pem = tls_private_key.root.private_key_pem
 
+  dns_names = [
+    "client"
+  ]
+
   subject {
     common_name  = "${var.name}.vpn.client"
     organization = var.organization_name

@@ -6,6 +6,10 @@ resource "tls_self_signed_cert" "ca" {
   key_algorithm   = "RSA"
   private_key_pem = tls_private_key.ca.private_key_pem
 
+  dns_names = [
+    "ca"
+  ]
+
   subject {
     common_name  = "${var.name}.vpn.ca"
     organization = var.organization_name
