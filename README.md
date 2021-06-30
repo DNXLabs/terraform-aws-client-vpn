@@ -29,6 +29,8 @@ The following resources will be created:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| authentication\_saml\_provider\_arn | (Optional) The ARN of the IAM SAML identity provider if type is federated-authentication. | `any` | `null` | no |
+| authentication\_type | The type of client authentication to be used. Specify certificate-authentication to use certificate-based authentication, directory-service-authentication to use Active Directory authentication, or federated-authentication to use Federated Authentication via SAML 2.0. | `string` | `"certificate-authentication"` | no |
 | cidr | Network CIDR to use for clients | `any` | n/a | yes |
 | logs\_retention | Retention in days for CloudWatch Log Group | `number` | `365` | no |
 | name | Name prefix for the resources of this stack | `any` | n/a | yes |
