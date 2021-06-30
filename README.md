@@ -34,7 +34,7 @@ The following resources will be created:
 | name | Name prefix for the resources of this stack | `any` | n/a | yes |
 | organization\_name | Name of organization to use in private certificate | `string` | `"ACME, Inc"` | no |
 | subnet\_ids | Subnet ID to associate clients | `list(string)` | n/a | yes |
-| tags | Extra tags to attach to resources | `map` | `{}` | no |
+| tags | Extra tags to attach to resources | `map(string)` | `{}` | no |
 
 ## Outputs
 
