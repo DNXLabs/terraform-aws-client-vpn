@@ -4,10 +4,10 @@ resource "aws_cloudwatch_log_group" "vpn" {
 
   tags = merge(
     var.tags,
-    map(
-      "Name", "${var.name}-Client-VPN-Log-Group",
-      "EnvName", var.name
-    )
+    tomap({
+      "Name" = "${var.name}-Client-VPN-Log-Group",
+      "EnvName" = var.name
+    })
   )
 }
 

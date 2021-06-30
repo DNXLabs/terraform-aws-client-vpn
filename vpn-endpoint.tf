@@ -16,10 +16,10 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
 
   tags = merge(
     var.tags,
-    map(
-      "Name", "${var.name}-Client-VPN",
-      "EnvName", var.name
-    )
+    tomap({
+      "Name" = "${var.name}-Client-VPN",
+      "EnvName" = var.name
+    })
   )
 }
 

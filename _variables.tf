@@ -17,7 +17,7 @@ variable "organization_name" {
 }
 
 variable "tags" {
-  type        = "map"
+  type        = map(string)
   default     = {}
   description = "Extra tags to attach to resources"
 }
