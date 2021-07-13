@@ -5,10 +5,19 @@ variable "name" {
 variable "cidr" {
   description = "Network CIDR to use for clients"
 }
+variable "split_tunnel" {
+  description = "Allow split tunnel"
+  default     = false
+}
 
 variable "subnet_ids" {
   type        = list(string)
   description = "Subnet ID to associate clients"
+}
+variable "dns_servers" {
+  type        = list(string)
+  default     = []
+  description = "List of DNS Servers"
 }
 
 variable "organization_name" {
