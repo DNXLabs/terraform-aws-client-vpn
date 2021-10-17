@@ -8,7 +8,12 @@ variable "cidr" {
 
 variable "subnet_ids" {
   type        = list(string)
-  description = "Subnet ID to associate clients"
+  description = "Subnet ID to associate clients (each subnet passed will create an VPN association - costs involved)"
+}
+
+variable "vpc_id" {
+  type        = string
+  description = "VPC Id to create resources"
 }
 
 variable "organization_name" {
@@ -34,5 +39,15 @@ variable "authentication_type" {
 
 variable "authentication_saml_provider_arn" {
   default     = null
-  description = " (Optional) The ARN of the IAM SAML identity provider if type is federated-authentication."
+  description = "(Optional) The ARN of the IAM SAML identity provider if type is federated-authentication."
+}
+
+variable "split_tunnel" {
+  default     = true
+  description = "With split_tunnel false, all client traffic will go through the VPN."
+}
+
+variable "security_group_id" {
+  default     = ""
+  description = "Optional security group id to use instead of the default created"
 }
