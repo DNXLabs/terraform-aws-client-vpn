@@ -15,6 +15,11 @@ variable "vpc_id" {
   type        = string
   description = "VPC Id to create resources"
 }
+variable "dns_servers" {
+  type        = list(string)
+  default     = []
+  description = "List of DNS Servers"
+}
 
 variable "organization_name" {
   description = "Name of organization to use in private certificate"
