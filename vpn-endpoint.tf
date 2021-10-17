@@ -2,6 +2,8 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
   description            = "${var.name}-Client-VPN"
   server_certificate_arn = aws_acm_certificate.server.arn
   client_cidr_block      = var.cidr
+  split_tunnel           = var.split_tunnel
+  dns_servers            = var.dns_servers
 
   authentication_options {
     type                       = var.authentication_type
