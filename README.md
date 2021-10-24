@@ -42,7 +42,8 @@ The following resources will be created:
 
 ## Outputs
 
-No output.
+`vpn_client_cert` - Client certificate generated to use the client VPN. Add this in between `<cert>` and `</cert>` tags to the ovpn configuration file that you download
+`vpn_client_key` - Client key generated to use the client VPN. Add this in between `<key>` and `</key>` tags to the ovpn configuration file that you download
 
 <!--- END_TF_DOCS --->
 
