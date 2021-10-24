@@ -29,6 +29,8 @@ The following resources will be created:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| `allowed_cidr_ranges` | (Optional) List of CIDR ranges allowed to use the VPN|`list`|[]|no|
+| `allowed_access_groups` | (Optional) List of Access Group IDs allowed to use the VPN (default is all access groups if `allowed_cidr_ranges` is set)|`list`|[]|no|
 | authentication\_saml\_provider\_arn | (Optional) The ARN of the IAM SAML identity provider if type is federated-authentication. | `any` | `null` | no |
 | authentication\_type | The type of client authentication to be used. Specify certificate-authentication to use certificate-based authentication, directory-service-authentication to use Active Directory authentication, or federated-authentication to use Federated Authentication via SAML 2.0. | `string` | `"certificate-authentication"` | no |
 | cidr | Network CIDR to use for clients | `any` | n/a | yes |
