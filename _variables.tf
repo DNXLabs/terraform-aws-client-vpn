@@ -11,6 +11,18 @@ variable "subnet_ids" {
   description = "Subnet ID to associate clients (each subnet passed will create an VPN association - costs involved)"
 }
 
+variable "allowed_cidr_ranges" {
+  type        = list(string)
+  description = "List of CIDR ranges from which access is allowed"
+  default     = []
+}
+
+variable "allowed_access_groups" {
+  type        = list(string)
+  description = "List of Access group IDs to allow access. Leave empty to allow all groups"
+  default     = []
+}
+
 variable "vpc_id" {
   type        = string
   description = "VPC Id to create resources"
