@@ -5,9 +5,9 @@ resource "aws_security_group" "default" {
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = "${var.name}-Client-VPN"
-    EnvName = var.name
-    Service = "client-vpn"
+    Name               = "${var.name}-Client-VPN"
+    EnvName            = var.name
+    Service            = "client-vpn"
     TerraformWorkspace = terraform.workspace
   }
 }
