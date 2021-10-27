@@ -1,17 +1,13 @@
 name: Generate terraform docs
 
-on:
-  push:
-    branches:
-      - master
-
+on: [pull_request]
 jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: master
+        ref: ${{ github.head_ref }}
 
     - name: Render terraform docs inside the README.md and push changes back to pushed branch
       uses: DNXLabs/terraform-docs@v1.0.0

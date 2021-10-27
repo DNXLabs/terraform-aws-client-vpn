@@ -29,23 +29,29 @@ The following resources will be created:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| `allowed_cidr_ranges` | (Optional) List of CIDR ranges allowed to use the VPN|`list`|[]|no|
-| `allowed_access_groups` | (Optional) List of Access Group IDs allowed to use the VPN (default is all access groups if `allowed_cidr_ranges` is set)|`list`|[]|no|
+| allowed\_access\_groups | List of Access group IDs to allow access. Leave empty to allow all groups | `list(string)` | `[]` | no |
+| allowed\_cidr\_ranges | List of CIDR ranges from which access is allowed | `list(string)` | `[]` | no |
 | authentication\_saml\_provider\_arn | (Optional) The ARN of the IAM SAML identity provider if type is federated-authentication. | `any` | `null` | no |
 | authentication\_type | The type of client authentication to be used. Specify certificate-authentication to use certificate-based authentication, directory-service-authentication to use Active Directory authentication, or federated-authentication to use Federated Authentication via SAML 2.0. | `string` | `"certificate-authentication"` | no |
 | cidr | Network CIDR to use for clients | `any` | n/a | yes |
-| dns_servers | List of DNS servers| `list(string)` | n/a | no |
+| dns\_servers | List of DNS Servers | `list(string)` | `[]` | no |
 | logs\_retention | Retention in days for CloudWatch Log Group | `number` | `365` | no |
 | name | Name prefix for the resources of this stack | `any` | n/a | yes |
 | organization\_name | Name of organization to use in private certificate | `string` | `"ACME, Inc"` | no |
-| subnet\_ids | Subnet ID to associate clients | `list(string)` | n/a | yes |
-| split_tunnel | Allow split tunnel connection | `bool` | `false` | no |
+| security\_group\_id | Optional security group id to use instead of the default created | `string` | `""` | no |
+| split\_tunnel | With split\_tunnel false, all client traffic will go through the VPN. | `bool` | `true` | no |
+| subnet\_ids | Subnet ID to associate clients (each subnet passed will create an VPN association - costs involved) | `list(string)` | n/a | yes |
 | tags | Extra tags to attach to resources | `map(string)` | `{}` | no |
+| vpc\_id | VPC Id to create resources | `string` | n/a | yes |
 
 ## Outputs
 
-`vpn_client_cert` - Client certificate generated to use the client VPN. Add this in between `<cert>` and `</cert>` tags to the ovpn configuration file that you download
-`vpn_client_key` - Client key generated to use the client VPN. Add this in between `<key>` and `</key>` tags to the ovpn configuration file that you download
+| Name | Description |
+|------|-------------|
+| security\_group\_id | n/a |
+| vpn\_client\_cert | n/a |
+| vpn\_client\_key | n/a |
+| vpn\_endpoint\_id | n/a |
 
 <!--- END_TF_DOCS --->
 
