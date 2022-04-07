@@ -35,6 +35,7 @@ The following resources will be created:
 | authentication\_type | The type of client authentication to be used. Specify certificate-authentication to use certificate-based authentication, directory-service-authentication to use Active Directory authentication, or federated-authentication to use Federated Authentication via SAML 2.0. | `string` | `"certificate-authentication"` | no |
 | cidr | Network CIDR to use for clients | `any` | n/a | yes |
 | dns\_servers | List of DNS Servers | `list(string)` | `[]` | no |
+| enable\_self\_service\_portal | Specify whether to enable the self-service portal for the Client VPN endpoint | `bool` | `false` | no |
 | logs\_retention | Retention in days for CloudWatch Log Group | `number` | `365` | no |
 | name | Name prefix for the resources of this stack | `any` | n/a | yes |
 | organization\_name | Name of organization to use in private certificate | `string` | `"ACME, Inc"` | no |

@@ -68,3 +68,9 @@ variable "security_group_id" {
   default     = ""
   description = "Optional security group id to use instead of the default created"
 }
+
+variable "enable_self_service_portal" {
+  type        = bool
+  default     = false
+  description = "Specify whether to enable the self-service portal for the Client VPN endpoint"
+}
