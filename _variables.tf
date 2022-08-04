@@ -74,3 +74,22 @@ variable "enable_self_service_portal" {
   default     = false
   description = "Specify whether to enable the self-service portal for the Client VPN endpoint"
 }
+
+variable "transport_protocol" {
+  type        = string
+  default     = "udp"
+  description = "(Optional) The transport protocol to be used by the VPN session. (Default value is `udp`)."
+}
+
+variable "session_timeout_hours" {
+  type        = number
+  default     = 24
+  description = "(Optional) The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. (Default value is `24` - Valid values: `8` | `10` | `12` | `24`)"
+}
+
+variable "login_banner_text" {
+  type        = string
+  default     = null
+  description = "(Optional) Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters."
+}
+

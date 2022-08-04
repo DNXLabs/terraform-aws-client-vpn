@@ -5,6 +5,8 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
   split_tunnel           = var.split_tunnel
   dns_servers            = var.dns_servers
   self_service_portal    = local.self_service_portal
+  transport_protocol     = var.transport_protocol
+  session_timeout_hours  = var.session_timeout_hours
 
   authentication_options {
     type                       = var.authentication_type
@@ -16,6 +18,14 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
     enabled               = true
     cloudwatch_log_group  = aws_cloudwatch_log_group.vpn.name
     cloudwatch_log_stream = aws_cloudwatch_log_stream.vpn.name
+  }
+
+  dynamic "client_login_banner_options" {
+    for_each = var.login_banner_text == null? [] : [var.login_banner_text]
+    content {
+      banner_text = var.login_banner_text
+      enabled = true 
+    }
   }
 
   tags = merge(
