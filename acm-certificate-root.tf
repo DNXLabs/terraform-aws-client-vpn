@@ -3,7 +3,6 @@ resource "tls_private_key" "root" {
 }
 
 resource "tls_cert_request" "root" {
-  key_algorithm   = "RSA"
   private_key_pem = tls_private_key.root.private_key_pem
 
   subject {
@@ -14,7 +13,6 @@ resource "tls_cert_request" "root" {
 
 resource "tls_locally_signed_cert" "root" {
   cert_request_pem   = tls_cert_request.root.cert_request_pem
-  ca_key_algorithm   = "RSA"
   ca_private_key_pem = tls_private_key.ca.private_key_pem
   ca_cert_pem        = tls_self_signed_cert.ca.cert_pem
 

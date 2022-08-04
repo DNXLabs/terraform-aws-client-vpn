@@ -44,6 +44,11 @@ The following resources will be created:
 | subnet\_ids | Subnet ID to associate clients (each subnet passed will create an VPN association - costs involved) | `list(string)` | n/a | yes |
 | tags | Extra tags to attach to resources | `map(string)` | `{}` | no |
 | vpc\_id | VPC Id to create resources | `string` | n/a | yes |
+| transport\_protocol | (Optional) The transport protocol to be used by the VPN session. (Default value is `udp`). | `string` | udp | no |
+
+| session_timeout_hours | (Optional) The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. (Default value is `24` - Valid values: `8` | `10` | `12` | `24`) | `number` | `24` | no |
+| login_banner_text | (Optional) Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters. | `string` | `null` | no |
+
 
 ## Outputs
 
@@ -53,6 +58,7 @@ The following resources will be created:
 | vpn\_client\_cert | n/a |
 | vpn\_client\_key | n/a |
 | vpn\_endpoint\_id | n/a |
+| vpn\_dns\_name | n/a |
 
 <!--- END_TF_DOCS --->
 
