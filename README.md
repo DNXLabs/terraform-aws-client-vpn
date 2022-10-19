@@ -50,9 +50,13 @@ The following resources will be created:
 | Name | Description |
 |------|-------------|
 | security\_group\_id | n/a |
+| vpn\_ca\_cert | n/a |
+| vpn\_ca\_key | n/a |
 | vpn\_client\_cert | n/a |
 | vpn\_client\_key | n/a |
 | vpn\_endpoint\_id | n/a |
+| vpn\_server\_cert | n/a |
+| vpn\_server\_key | n/a |
 
 <!--- END_TF_DOCS --->
 
