@@ -18,6 +18,11 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
     cloudwatch_log_stream = aws_cloudwatch_log_stream.vpn.name
   }
 
+  client_login_banner_options {
+    enabled     = var.enable_login_banner
+    banner_text = var.banner_text
+  }
+
   tags = merge(
     var.tags,
     tomap({
