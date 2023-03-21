@@ -5,6 +5,7 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
   split_tunnel           = var.split_tunnel
   dns_servers            = var.dns_servers
   self_service_portal    = local.self_service_portal
+  security_group_ids     = [var.security_group_id == "" ? aws_security_group.default[0].id : var.security_group_id]
 
   authentication_options {
     type                       = var.authentication_type
@@ -31,7 +32,6 @@ resource "aws_ec2_client_vpn_network_association" "default" {
   count                  = length(var.subnet_ids)
   client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.default.id
   subnet_id              = element(var.subnet_ids, count.index)
-  security_groups        = [var.security_group_id == "" ? aws_security_group.default[0].id : var.security_group_id]
 }
 
 resource "aws_ec2_client_vpn_authorization_rule" "all_groups" {
