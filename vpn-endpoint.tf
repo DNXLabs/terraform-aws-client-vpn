@@ -6,6 +6,7 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
   dns_servers            = var.dns_servers
   self_service_portal    = local.self_service_portal
   security_group_ids     = [var.security_group_id == "" ? aws_security_group.default[0].id : var.security_group_id]
+  vpc_id                 = var.vpc_id
 
   authentication_options {
     type                       = var.authentication_type
