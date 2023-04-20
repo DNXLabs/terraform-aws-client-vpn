@@ -74,3 +74,14 @@ variable "enable_self_service_portal" {
   default     = false
   description = "Specify whether to enable the self-service portal for the Client VPN endpoint"
 }
+
+variable "enable_login_banner" {
+  type        = bool
+  default     = false
+  description = "Specify whether to enable the login banner for the Client VPN endpoint"
+}
+variable "banner_text" {
+  type        = string
+  default     = ""
+  description = "Specify the login banner text that will be shown after successfull connect"
+}
