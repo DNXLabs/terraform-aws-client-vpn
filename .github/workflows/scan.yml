@@ -1,0 +1,20 @@
+name: Checkov
+
+on: [push]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      # - name: Set up Python 3.8
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: 3.8
+      - name: Run Checkov action
+        id: checkov
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: .
+          framework: terraform 
