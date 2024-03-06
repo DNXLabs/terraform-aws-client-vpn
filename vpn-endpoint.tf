@@ -20,6 +20,11 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
     cloudwatch_log_stream = aws_cloudwatch_log_stream.vpn.name
   }
 
+  client_connect_options {
+    enabled             = var.client_connect_options
+    lambda_function_arn = var.client_connect_options != true ? null : var.connection_authorization_lambda_function_arn
+  }
+  
   tags = merge(
     var.tags,
     tomap({
