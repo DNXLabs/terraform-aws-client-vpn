@@ -74,3 +74,14 @@ variable "enable_self_service_portal" {
   default     = false
   description = "Specify whether to enable the self-service portal for the Client VPN endpoint"
 }
+
+variable "client_connect_options" {
+  type = bool
+  default = false
+  description = "Indicates whether client connect options are enabled"  
+}
+
+variable "connection_authorization_lambda_function_arn" {
+  default = null
+  description = "The Amazon Resource Name (ARN) of the Lambda function used for connection authorization."  
+}
