@@ -12,6 +12,7 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
     type                       = var.authentication_type
     root_certificate_chain_arn = var.authentication_type != "certificate-authentication" ? null : aws_acm_certificate.root.arn
     saml_provider_arn          = var.authentication_saml_provider_arn
+    active_directory_id        = var.active_directory_id
   }
 
   connection_log_options {
@@ -24,7 +25,7 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
     enabled             = var.client_connect_options
     lambda_function_arn = var.client_connect_options != true ? null : var.connection_authorization_lambda_function_arn
   }
-  
+
   tags = merge(
     var.tags,
     tomap({

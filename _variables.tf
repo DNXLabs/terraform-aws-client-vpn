@@ -76,12 +76,18 @@ variable "enable_self_service_portal" {
 }
 
 variable "client_connect_options" {
-  type = bool
-  default = false
-  description = "Indicates whether client connect options are enabled"  
+  type        = bool
+  default     = false
+  description = "Indicates whether client connect options are enabled"
 }
 
 variable "connection_authorization_lambda_function_arn" {
-  default = null
-  description = "The Amazon Resource Name (ARN) of the Lambda function used for connection authorization."  
+  default     = null
+  description = "The Amazon Resource Name (ARN) of the Lambda function used for connection authorization."
+}
+
+variable "active_directory_id" {
+  type        = string
+  default     = null
+  description = "The ID of the Active Directory to be used for authentication. If not provided, the default directory will be used."
 }
