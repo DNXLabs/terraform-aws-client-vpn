@@ -29,6 +29,7 @@ The following resources will be created:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| active\_directory\_id | The ID of the Active Directory to be used for authentication. If not provided, the default directory will be used. | `string` | `null` | no |
 | allowed\_access\_groups | List of Access group IDs to allow access. Leave empty to allow all groups | `list(string)` | `[]` | no |
 | allowed\_cidr\_ranges | List of CIDR ranges from which access is allowed | `list(string)` | `[]` | no |
 | authentication\_saml\_provider\_arn | (Optional) The ARN of the IAM SAML identity provider if type is federated-authentication. | `any` | `null` | no |
