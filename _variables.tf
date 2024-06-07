@@ -91,3 +91,9 @@ variable "active_directory_id" {
   default     = null
   description = "The ID of the Active Directory to be used for authentication. If not provided, the default directory will be used."
 }
+
+variable "self_service_saml_provider_arn" {
+  default     = null
+  description = "(Optional) The ARN of the IAM SAML identity provider for portal if self portal is enabled."
+}
+
