@@ -43,6 +43,7 @@ The following resources will be created:
 | name | Name prefix for the resources of this stack | `any` | n/a | yes |
 | organization\_name | Name of organization to use in private certificate | `string` | `"ACME, Inc"` | no |
 | security\_group\_id | Optional security group id to use instead of the default created | `string` | `""` | no |
+| self\_service\_saml\_provider\_arn | (Optional) The ARN of the IAM SAML identity provider for portal if self portal is enabled. | `any` | `null` | no |
 | split\_tunnel | With split\_tunnel false, all client traffic will go through the VPN. | `bool` | `true` | no |
 | subnet\_ids | Subnet ID to associate clients (each subnet passed will create an VPN association - costs involved) | `list(string)` | n/a | yes |
 | tags | Extra tags to attach to resources | `map(string)` | `{}` | no |
