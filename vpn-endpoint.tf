@@ -60,6 +60,7 @@ resource "aws_ec2_client_vpn_authorization_rule" "specific_groups" {
 resource "aws_ec2_client_vpn_route" "default" {
   count                  = length(var.subnet_ids) * length(var.allowed_cidr_ranges) 
   client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.default.id
+  description            = "Default Route"
   destination_cidr_block = element(var.allowed_cidr_ranges, count.index)
   target_vpc_subnet_id   = var.subnet_ids[count.index % length(var.subnet_ids)] 
 }
