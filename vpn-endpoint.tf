@@ -9,11 +9,11 @@ resource "aws_ec2_client_vpn_endpoint" "default" {
   vpc_id                 = var.vpc_id
 
   authentication_options {
-    type                       = var.authentication_type
-    root_certificate_chain_arn = var.authentication_type != "certificate-authentication" ? null : aws_acm_certificate.root.arn
-    saml_provider_arn          = var.authentication_saml_provider_arn
-    self_service_saml_provider_arn  = var.enable_self_service_portal == true ? var.self_service_saml_provider_arn : null
-    active_directory_id        = var.active_directory_id
+    type                           = var.authentication_type
+    root_certificate_chain_arn     = var.authentication_type != "certificate-authentication" ? null : aws_acm_certificate.root.arn
+    saml_provider_arn              = var.authentication_saml_provider_arn
+    self_service_saml_provider_arn = var.enable_self_service_portal == true ? var.self_service_saml_provider_arn : null
+    active_directory_id            = var.active_directory_id
   }
 
   connection_log_options {
@@ -54,13 +54,4 @@ resource "aws_ec2_client_vpn_authorization_rule" "specific_groups" {
   client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.default.id
   target_network_cidr    = element(var.allowed_cidr_ranges, count.index)
   access_group_id        = var.allowed_access_groups[count.index % length(var.allowed_cidr_ranges)]
-}
-
-
-resource "aws_ec2_client_vpn_route" "default" {
-  count                  = length(var.subnet_ids) * length(var.allowed_cidr_ranges) 
-  client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.default.id
-  description            = "Default Route"
-  destination_cidr_block = element(var.allowed_cidr_ranges, count.index)
-  target_vpc_subnet_id   = var.subnet_ids[count.index % length(var.subnet_ids)] 
 }
